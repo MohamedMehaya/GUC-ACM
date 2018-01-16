@@ -1,0 +1,41 @@
+import java.util.*;
+import java.io.*;
+
+public class MyClass {
+    public static void main(String args[]) throws Throwable{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        PrintWriter out = new PrintWriter(System.out);
+
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+        int x=0;
+        int counter=0;
+        st = new StringTokenizer(br.readLine());
+        int[] parti= new int[n];
+        for(int i=0;i<n;i++){
+            x = Integer.parseInt(st.nextToken());
+            parti[i]=x;
+        }
+        out.println(parti);
+        
+        for(int i=0;i<parti.length;i++){
+            if(k>0 && parti[i]>0)
+                counter++;
+                k--;
+                if( i>=parti.length  && parti[i+1]==parti[i])
+                    k++;    
+        }
+        
+        out.print(counter);
+        out.flush();
+        out.close();
+        
+        
+        
+        
+        
+        
+        
+    }
+}
